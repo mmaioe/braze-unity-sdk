@@ -343,6 +343,12 @@ namespace Appboy {
       #endif 
     }
 
+    public static void InitBrazeAfterDelayedInitialization() {
+      #if HAS_BRAZE_SDK
+        mBinding.InitBrazeAfterDelayedInitialization();
+      #endif
+    }
+
     public static void SetCustomUserAttributeArray(string key, List<string> array, int size) {
       #if HAS_BRAZE_SDK
         mBinding.SetCustomUserAttributeArray(key, array, size);

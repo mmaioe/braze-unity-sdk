@@ -79,6 +79,7 @@ public interface BrazePlatform {
   void LogContentCardClicked(string contentCardString);
   void LogContentCardImpression(string contentCardString);
   void LogContentCardDismissed(string contentCardString);
+  void InitBrazeAfterDelayedInitialization();
 
   void WipeData();
   void EnableSDK();
