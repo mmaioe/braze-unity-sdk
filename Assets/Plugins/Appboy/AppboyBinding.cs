@@ -123,6 +123,12 @@ namespace Appboy {
       }
     }
 
+    public static void InitBrazeAfterDelayedInitialization() {
+      #if HAS_BRAZE_SDK
+        mBinding.InitBrazeAfterDelayedInitialization();
+      #endif
+    }
+    
     public static void LogCustomEvent(string eventName) {
       #if HAS_BRAZE_SDK
         mBinding.LogCustomEvent(eventName);

@@ -99,6 +99,11 @@ NSDictionary *brazeUnityPlist;
   return braze;
 }
 
+
++ (void)prepareForDelayedInitialization{
+   [Braze prepareForDelayedInitialization];
+}
+
 - (instancetype)init {
   self = [super init];
   if (self) {
@@ -924,6 +929,26 @@ NSDictionary *brazeUnityPlist;
       NSLog(@"Unknown internal message type received.");
       return;
   }
+}
+
+
+- (void)initBrazeAfterDelayedInitialization{
+   BRZConfiguration *config = [[BRZConfiguration alloc] init];
+   config.triggerMinimumTimeInterval = 1;
+   Braze *braze = [AppboyUnityManager initBraze:config];
+   
+   // Set listeners
+   [[AppboyUnityManager sharedInstance] setListenersFromPList];
+
+  //  // Store the braze settings (used in system push handlers)
+  //  self.brazeUnityPlist = [AppboyUnityManager sharedInstance].brazeUnityPlist;
+    
+   // Register for push notifications
+   if ([[AppboyUnityManager sharedInstance].brazeUnityPlist[BRZUnityAutomaticPushIntegrationKey] boolValue] &&
+      ![[AppboyUnityManager sharedInstance].brazeUnityPlist[BRZUnityDisableAutomaticPushRegistrationKey] boolValue]) {
+     BOOL provisional = ![[AppboyUnityManager sharedInstance].brazeUnityPlist[BRZUnityDisableProvisionalAuthKey] boolValue];
+     [[AppboyUnityManager sharedInstance] registerForRemoteNotificationsWithProvisional:provisional];
+   }
 }
 
 @end

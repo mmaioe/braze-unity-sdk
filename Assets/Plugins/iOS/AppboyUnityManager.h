@@ -91,6 +91,8 @@ typedef NS_ENUM(NSInteger, BRZUnityMessageType) {
  */
 + (Braze *)initBraze:(BRZConfiguration *)config;
 
++ (void)prepareForDelayedInitialization;
+
 // In-app messages
 - (void)logInAppMessageImpression:(NSString *)inAppMessageJSONString;
 - (void)logInAppMessageClicked:(NSString *)inAppMessageJSONString;
@@ -118,6 +120,9 @@ typedef NS_ENUM(NSInteger, BRZUnityMessageType) {
 - (NSString *)getFeatureFlag:(NSString *)identifier;
 - (NSString *)getAllFeatureFlags;
 - (void)logFeatureFlagImpression:(NSString *)identifier;
+
+// Delayed Initization Braze
+- (void)initBrazeAfterDelayedInitialization;
 
 /*!
  * @discussion Passes the device token to Braze. The caller is responsible for respecting

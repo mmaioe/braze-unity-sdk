@@ -215,6 +215,9 @@ public class BrazeiOSPlatform : BrazePlatform {
   [System.Runtime.InteropServices.DllImport("__Internal")]
   private static extern void _logFeatureFlagImpression(string id);
 
+  [System.Runtime.InteropServices.DllImport("__Internal")]
+  private static extern void _initBrazeAfterDelayedInitialization();
+
   /***** `BrazePlatform` method implementations *****/
 
   public void LogCustomEvent(string eventName) {
@@ -561,6 +564,10 @@ public class BrazeiOSPlatform : BrazePlatform {
 
   public void LogFeatureFlagImpression(string id) {
     _logFeatureFlagImpression(id);
+  }
+
+  public void InitBrazeAfterDelayedInitialization() {
+    _initBrazeAfterDelayedInitialization();
   }
 
 }

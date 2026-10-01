@@ -52,6 +52,7 @@ public interface BrazePlatform {
   void SetCustomUserAttributeArray(string key, List<string> array, int size);
   void AddToCustomUserAttributeArray(string key, string value);
   void RemoveFromCustomUserAttributeArray(string key, string value);
+  void InitBrazeAfterDelayedInitialization();
 
   void SetUserLastKnownLocation(
     double latitude,

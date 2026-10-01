@@ -45,6 +45,10 @@ void _setSdkAuthenticationSignature(const char* sdkAuthSignature) {
   [[AppboyUnityManager sharedInstance].braze setSDKAuthenticationSignature:GetStringParam(sdkAuthSignature)];
 }
 
+void _initBrazeAfterDelayedInitialization() {
+  [[AppboyUnityManager sharedInstance] initBrazeAfterDelayedInitialization];
+}
+
 void _logCustomEvent(const char* eventName, const char* properties) {
   NSMutableDictionary *eventProperties = [NSMutableDictionary dictionaryWithCapacity:1];
   if (properties != NULL && properties != nil) {

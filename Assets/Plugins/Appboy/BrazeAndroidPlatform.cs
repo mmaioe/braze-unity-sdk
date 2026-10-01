@@ -520,6 +520,9 @@ public class BrazeAndroidPlatform : BrazePlatform {
     Braze.Call("logFeatureFlagImpression", id);
   }
 
+  public void InitBrazeAfterDelayedInitialization() {
+    Braze.CallStatic("disableDelayedInitialization", brazeUnityActivity);
+  }
 }
 
 #endif

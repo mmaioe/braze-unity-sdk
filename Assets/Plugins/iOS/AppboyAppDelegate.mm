@@ -22,23 +22,24 @@ static Braze *_braze;
   [super application:application didFinishLaunchingWithOptions:launchOptions];
   NSLog(@"AppboyAppDelegate called from application:didFinishLaunchingWithOptions:");
 
-  BRZConfiguration *config = [[BRZConfiguration alloc] init];
-  config.triggerMinimumTimeInterval = 1;
-  Braze *braze = [AppboyUnityManager initBraze:config];
-  AppboyAppDelegate.braze = braze;
+  [AppboyUnityManager prepareForDelayedInitialization];
+  // BRZConfiguration *config = [[BRZConfiguration alloc] init];
+  // config.triggerMinimumTimeInterval = 1;
+  // Braze *braze = [AppboyUnityManager initBraze:config];
+  // AppboyAppDelegate.braze = braze;
 
-  // Set listeners
-  [[AppboyUnityManager sharedInstance] setListenersFromPList];
+  // // Set listeners
+  // [[AppboyUnityManager sharedInstance] setListenersFromPList];
 
-  // Store the braze settings (used in system push handlers)
-  self.brazeUnityPlist = [AppboyUnityManager sharedInstance].brazeUnityPlist;
+  // // Store the braze settings (used in system push handlers)
+  // self.brazeUnityPlist = [AppboyUnityManager sharedInstance].brazeUnityPlist;
     
-  // Register for push notifications
-  if ([self.brazeUnityPlist[BRZUnityAutomaticPushIntegrationKey] boolValue] &&
-      ![self.brazeUnityPlist[BRZUnityDisableAutomaticPushRegistrationKey] boolValue]) {
-    BOOL provisional = ![self.brazeUnityPlist[BRZUnityDisableProvisionalAuthKey] boolValue];
-    [[AppboyUnityManager sharedInstance] registerForRemoteNotificationsWithProvisional:provisional];
-  }
+  // // Register for push notifications
+  // if ([self.brazeUnityPlist[BRZUnityAutomaticPushIntegrationKey] boolValue] &&
+  //     ![self.brazeUnityPlist[BRZUnityDisableAutomaticPushRegistrationKey] boolValue]) {
+  //   BOOL provisional = ![self.brazeUnityPlist[BRZUnityDisableProvisionalAuthKey] boolValue];
+  //   [[AppboyUnityManager sharedInstance] registerForRemoteNotificationsWithProvisional:provisional];
+  // }
 
   return YES;
 }
