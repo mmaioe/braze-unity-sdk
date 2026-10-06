@@ -69,6 +69,9 @@ namespace Appboy.Editor {
       cfg = AddBooleanKey(cfg, "com_braze_inapp_show_inapp_messages_automatically", AppboyConfig.AndroidDisplayInAppMessagesAutomatically);
       cfg = AddBooleanKey(cfg, "com_braze_inapp_auto_set_manager_listener_key", AppboyConfig.AndroidSetInAppMessageManagerListenerAutomatically);
 
+      // Delayed Initialization
+      cfg = AddBooleanKey(cfg, "com_braze_enable_delayed_initialization", true);
+
       string displayOperation = "DISPLAY_NOW";
       // Corresponds to `IAM_OPERATIONS` in the config editor.
       switch (AppboyConfig.AndroidInitialInAppMessageOperation) {
