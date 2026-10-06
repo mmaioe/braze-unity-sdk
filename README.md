@@ -3,6 +3,20 @@
   <img width="480" alt="Braze Logo" src=".github/assets/logo-dark.png#gh-dark-mode-only" />
 </p>
 
+# Changes from the original Braze Unity SDK
+1. added "<bool name="com_braze_enable_delayed_initialization">true</bool>" setting in braze.xml
+→ This is added for enabling Delayed initialization
+
+2. added "InitBrazeAfterDelayedInitialization" functionality
+→ This is for calling disableDelayedInitialization, i.e. execute SDK initilizaiton
+
+The corresponding braze document is https://www.braze.com/docs/developer_guide/sdk_integration#android_step-43-manually-initialize-the-sdk
+
+3. Now, you can call Appboy.AppboyBinding.InitBrazeAfterDelayedInitialization(); in Unity to complete SDK initialization when you want to.
+
+
+
+--------------------
 # Braze Unity SDK [![latest](https://img.shields.io/github/v/tag/braze-inc/braze-unity-sdk?label=latest%20release&color=300266)](https://github.com/braze-inc/braze-unity-sdk/releases) 
 
 - [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/ "Braze User Guide")
