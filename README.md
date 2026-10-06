@@ -5,7 +5,7 @@
 
 # Changes from the original Braze Unity SDK
 
-This branch is an example where we added delayed initialization for Android Platform.
+This branch is an example where we added delayed initialization for iOS Platform.
 
 1. execute [AppboyUnityManager prepareForDelayedInitialization]; in AppboyAppDelegate.m in stead of executing normal SDK initialization.
    → This is added for enabling Delayed initialization
